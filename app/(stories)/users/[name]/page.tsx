@@ -11,8 +11,8 @@ const Users = async ({ params }: {
   const user = await fetchAPI(params.name)
   console.log(user)
   return (
-    <div className="item-view">
-      <div className="item-view-header">
+    <div className="bg-gray-800 p-5 rounded-sm border-b-2 border-gray-900 leading-5">
+      <div className="text-gray-500">
         <p>user: {user.id}</p>
         <p>created: {user.created}</p>
         <p>karma: {user.karma}</p>

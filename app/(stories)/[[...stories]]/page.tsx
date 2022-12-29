@@ -36,43 +36,42 @@ export default async function Index({ params, searchParams }: {
   params: { stories: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  console.log(params);
   let page = +(searchParams.page || 1);
   const type = params.stories ? params.stories[0] : "top"
   const stories: Story[] = await fetchAPI(`${mapStories[type as keyof typeof mapStories]}?page=${page}`)
 
   return (
-    <div className="news-view">
-      <div className="news-list-nav">
+    <div className="pt-4">
+      <div className="bg-gray-900 text-gray-400 border-slate-200 rounded-sm p-3 flex justify-center">
         {page > 1 ? (
           <Link
-            className="page-link"
+            className="p-1"
             href={`/${type}?page=${page - 1}`}
             aria-label="Previous Page"
           >
             {"<"} prev
           </Link>
         ) : (
-          <span className="page-link disabled" aria-disabled="true">
+          <span className="text-gray-500 p-1" aria-disabled="true">
             {"<"} prev
           </span>
         )}
-        <span>page {page}</span>
+        <span className="p-1">page {page}</span>
         {stories && stories.length >= 29 ? (
           <Link
-            className="page-link"
+            className="p-1"
             href={`/${type}?page=${page + 1}`}
             aria-label="Next Page"
           >
             more {">"}
           </Link>
         ) : (
-          <span className="page-link disabled" aria-disabled="true">
+          <span className="text-gray-500 p-1" aria-disabled="true">
             more {">"}
           </span>
         )}
       </div>
-      <main className="news-list">
+      <main className="p-2">
         {stories && (
           <ul>
             {stories.map((story) => (

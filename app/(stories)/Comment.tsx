@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import Toggle  from "./Toggle";
+import Toggle from "./Toggle";
 
 export interface Comment {
   id: string;
@@ -12,13 +12,12 @@ export interface Comment {
 
 const Comment = (props: { comment: Comment }) => {
   return (
-    <li className="comment">
-      <div className="by">
-        <Link href={`/users/${props.comment.user}`}>{props.comment.user}</Link>{" "}
+    <li className="border-t-1">
+      <div className="text-gray-600">
+        <Link className="text-gray-500 hover:text-violet-300" href={`/users/${props.comment.user}`}>{props.comment.user}</Link>{" "}
         {props.comment.time_ago} ago
       </div>
       <div
-        className="text"
         dangerouslySetInnerHTML={{ __html: props.comment.content }}
       />
       {!!props.comment.comments.length && (

@@ -7,10 +7,10 @@ export default function Toggle({ children }: { children: ReactNode }) {
 
   return (
     <>
-      <div className={"toggle" + (open ? " open" : "")}>
+      <div>
         <a onClick={() => setOpen(o => !o)}>{open ? "[-]" : "[+] comments collapsed"}</a>
       </div>
-      <ul className="comment-children" style={{ display: open ? "block" : "none" }}>
+      <ul className="m-2" style={{ display: open ? "block" : "none" }}>
         {children}
       </ul>
     </>

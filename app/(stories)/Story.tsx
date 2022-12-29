@@ -1,30 +1,29 @@
 import Link from "next/link";
-
-import type { Story } from "../page";
+import { Story } from "./[[...stories]]/page";
 
 const ShowStory = (props: { story: Story }) => {
   return (
-    <li className="news-item">
-      <span className="score">{props.story.points}</span>
-      <span className="title">
+    <li className="bg-gray-800 p-5 rounded-sm border-b-2 border-gray-900 leading-5">
+      <span className="text-gray-500 m-1">⭐ {props.story.points}</span>
+      <span className="text-gray-400">
         {props.story.url && !props.story.url.startsWith("item?id=") ? (
           <>
             <a href={props.story.url} target="_blank" rel="noreferrer">
               {props.story.title}
             </a>
-            <span className="host"> ({props.story.domain})</span>
+            <span className="text-gray-600"> ({props.story.domain})</span>
           </>
         ) : (
           <Link href={`/item/${props.story.id}`}>{props.story.title}</Link>
         )}
       </span>
       <br />
-      <span className="meta">
+      <span className="text-gray-600">
         {props.story.type !== "job" ? (
           <>
-            by <Link href={`/users/${props.story.user}`}>{props.story.user}</Link>{" "}
+            by <Link className="text-gray-500 hover:text-violet-300" href={`/users/${props.story.user}`}>{props.story.user}</Link>{" "}
             {props.story.time_ago} |{" "}
-            <Link href={`/stories/${props.story.id}`}>
+            <Link className="text-gray-500 hover:text-violet-300" href={`/stories/${props.story.id}`}>
               {props.story.comments_count
                 ? `${props.story.comments_count} comments`
                 : "discuss"}
@@ -37,7 +36,7 @@ const ShowStory = (props: { story: Story }) => {
       {props.story.type !== "link" && (
         <>
           {" "}
-          <span className="label">{props.story.type}</span>
+          <span className="text-gray-700">{props.story.type}</span>
         </>
       )}
     </li>
