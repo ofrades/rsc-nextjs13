@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { Story } from "../../[[...stories]]/page";
 
-import type { Story } from "../../[[...stories]]/page";
-import Comment from "../../[[...stories]]/components/comment";
+import Comment from "../../Comment";
 
 async function fetchAPI(path: string) {
   const url = `https://node-hnapi.herokuapp.com/${path}`;
@@ -10,7 +10,7 @@ async function fetchAPI(path: string) {
   return fetch(url, { headers }).then((r) => r.json());
 }
 
-const Story = async ({ params }: {
+const Stories = async ({ params }: {
   params: { id: string };
 }) => {
 
@@ -46,4 +46,4 @@ const Story = async ({ params }: {
   );
 };
 
-export default Story;
+export default Stories;

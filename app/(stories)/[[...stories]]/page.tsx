@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import ShowStory from "./components/story";
-import type { Comment } from "./components/comment";
+import ShowStory from "../Story";
+import type { Comment } from "../Comment";
 
 export interface Story {
   id: string;

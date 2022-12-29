@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import Toggle  from "./toggle";
+import Toggle  from "./Toggle";
 
 export interface Comment {
   id: string;
