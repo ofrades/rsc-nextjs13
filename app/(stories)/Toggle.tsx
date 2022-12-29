@@ -8,7 +8,7 @@ export default function Toggle({ children }: { children: ReactNode }) {
   return (
     <>
       <div>
-        <a onClick={() => setOpen(o => !o)}>{open ? "[-]" : "[+] comments collapsed"}</a>
+        <a className={(open ? "text-violet-400" : "text-violet-700")} onClick={() => setOpen(o => !o)}>{open ? "[-]" : "[+] comments collapsed"}</a>
       </div>
       <ul className="m-2" style={{ display: open ? "block" : "none" }}>
         {children}
