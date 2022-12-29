@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className='bg-gray-900'>
+      <body className='bg-gray-800'>
         <header className="bg-gray-900 text-sm">
           <nav className="p-3 relative flex h-16 justify-between items-center">
             <div className='justify-start'>
